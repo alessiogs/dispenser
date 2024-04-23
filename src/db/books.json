@@ -1,0 +1,92 @@
+[
+  {
+    "id": 0,
+    "title": "Dispense del corso di Fluidodinamica",
+    "authors": [0, 1],
+    "language": "ita",
+    "link": "http://www.dmf.unicatt.it/~musesti/FD/dinfluidi.pdf",
+    "subjects": [0, 1],
+    "topics": [5, 6]
+  },
+  {
+    "id": 1,
+    "title": "Note di Termodinamica Statistica",
+    "authors": [2],
+    "language": "ita",
+    "link": "https://www.math.unipd.it/~favretti/docs/DispNTS.pdf",
+    "subjects": [0, 1],
+    "topics": [7, 8]
+  },
+  {
+    "id": 2,
+    "title": "Note per il corso di Meccanica Analitica",
+    "authors": [2],
+    "language": "ita",
+    "link": "https://www.math.unipd.it/~favretti/docs/MAnuovocopia.pdf",
+    "subjects": [0, 1],
+    "topics": [3]
+  },
+  {
+    "id": 3,
+    "title": "Analisi Matematica II",
+    "authors": [3],
+    "language": "ita",
+    "link": "https://www.math.unipd.it/~maraston/Analisi3/matdid/An3_2324_Analisi2_note.pdf",
+    "subjects": [0, 1],
+    "topics": [0]
+  },
+  {
+    "id": 4,
+    "title": "Numerical Solution of Ordinary Differential Equations",
+    "authors": [4],
+    "language": "eng",
+    "link": "https://www.dmsa.unipd.it/~berga/Teaching/NMDE/nsodes.pdf",
+    "subjects": [0, 1],
+    "topics": [4]
+  },
+  {
+    "id": 5,
+    "title": "Notes on PCG for Sparse Linear Systems",
+    "authors": [5],
+    "language": "ita",
+    "link": "https://www.dmsa.unipd.it/~berga/Teaching/NMDE/pcg.pdf",
+    "subjects": [0, 1],
+    "topics": [4, 9]
+  },
+  {
+    "id": 6,
+    "title": "Numerical Models for Differential Problems",
+    "authors": [6],
+    "language": "eng",
+    "link": "https://www.dmsa.unipd.it/~berga/Teaching/NMDE/quarteroni.pdf",
+    "subjects": [0, 1],
+    "topics": [4, 9]
+  },
+  {
+    "id": 7,
+    "title": "Algebra e Geometria Lineari e Quadratiche (prima parte)",
+    "authors": [7],
+    "language": "ita",
+    "link": "https://www.math.unipd.it/~maurizio/xg1/AGLQpp.pdf",
+    "subjects": [0],
+    "topics": [1]
+  },
+  {
+    "id": 8,
+    "title": "Algebra e Geometria Lineari e Quadratiche (seconda parte)",
+    "authors": [7],
+    "language": "eng",
+    "link": "https://www.math.unipd.it/~maurizio/g2/AGLQsp.pdf",
+    "subjects": [0],
+    "topics": [1]
+  },
+  {
+    "id": 9,
+    "title": "Geometria & Topologia elementari",
+    "authors": [7],
+    "language": "eng",
+    "link": "https://www.math.unipd.it/~maurizio/t1/GeoTopEle.pdf",
+    "subjects": [0],
+    "topics": [1, 10]
+  }
+]

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  /* background-color: rgb(58, 58, 58);
+  color: white; */
+  display: flex;
+  justify-content: center;
+  margin: 0 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+table {
+  background-color: #ffffff;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: start;
+  border-top: 2px lightgray;
+  transition: all;
+  transition-duration: 700ms;
+}
+
+th:hover {
+  background-color: lightgray;
+}
+
+td,
+th {
+  padding: 10px;
+}
+
+tr {
+  border-bottom: 1px lightgray solid;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 700ms;
+}
+
+tr:hover {
+  background-color: lightgray;
+}
+
+thead tr:hover {
+  background-color: white;
+}
+
+.input-filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-filter-container input {
+  margin: 10px 0;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px lightgray solid;
+  transition: all;
+  transition-duration: 200ms;
+}
+
+.input-filter-container input:focus {
+  outline-width: 1px;
+  width: 100%;
+}

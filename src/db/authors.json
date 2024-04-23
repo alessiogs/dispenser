@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "name": "Giulio Giuseppe",
+    "surname": "Giusteri"
+  },
+  {
+    "id": 1,
+    "name": "Alessandro",
+    "surname": "Musesti"
+  },
+  {
+    "id": 2,
+    "name": "Marco",
+    "surname": "Favretti"
+  },
+  {
+    "id": 3,
+    "name": "Corrado",
+    "surname": "Marasoni"
+  },
+  {
+    "id": 4,
+    "name": "Endre",
+    "surname": "Süli"
+  },
+  {
+    "id": 5,
+    "name": "Luca",
+    "surname": "Bergamaschi"
+  },
+  {
+    "id": 6,
+    "name": "Alfio",
+    "surname": "Quarteroni"
+  },
+  {
+    "id": 7,
+    "name": "Maurizio",
+    "surname": "Cailotto"
+  }
+]

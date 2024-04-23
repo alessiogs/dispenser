@@ -1,0 +1,12 @@
+[
+  {
+    "id": 0,
+    "subject": "mathematics",
+    "topics": [0, 1, 2, 3, 4, 5, 9]
+  },
+  {
+    "id": 1,
+    "subject": "physics",
+    "topics": [3]
+  }
+]
