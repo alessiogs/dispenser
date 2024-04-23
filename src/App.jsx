@@ -26,10 +26,10 @@ const App = () => {
         book.title.toLowerCase().includes(filters.keyword.toLowerCase())
       );
 
-      const matchingAuthors = authors.filter(
-        (author) =>
-          author.name.toLowerCase().includes(filters.keyword.toLowerCase()) ||
-          author.surname.toLowerCase().includes(filters.keyword.toLowerCase())
+      const matchingAuthors = authors.filter((author) =>
+        `${author.name.toLowerCase() + author.surname.toLowerCase()}`.includes(
+          filters.keyword.toLowerCase().trim().replace(/\s/g, "")
+        )
       );
       const filteredByAuthor = books.filter(
         (book) =>
