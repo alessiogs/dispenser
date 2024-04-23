@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { authorsList, booksList, subjectsList, topicsList } from "./db";
 import Table from "./components/Table";
+import Filters from "./components/Filters";
 
 const App = () => {
   const [authors, setAuthors] = useState(authorsList);
@@ -16,7 +17,7 @@ const App = () => {
     sortDescendent: true,
   });
   const [filteredResults, setFilteredResults] = useState(
-    sortResults(books, filters.sortDescendent)
+    sortResults(books, filters.sortBy, filters.sortDescendent)
   );
 
   useEffect(() => {
@@ -25,8 +26,10 @@ const App = () => {
         book.title.toLowerCase().includes(filters.keyword.toLowerCase())
       );
 
-      const matchingAuthors = authors.filter((author) =>
-        author.name.toLowerCase().includes(filters.keyword.toLowerCase())
+      const matchingAuthors = authors.filter(
+        (author) =>
+          author.name.toLowerCase().includes(filters.keyword.toLowerCase()) ||
+          author.surname.toLowerCase().includes(filters.keyword.toLowerCase())
       );
       const filteredByAuthor = books.filter(
         (book) =>
@@ -40,7 +43,13 @@ const App = () => {
           (book) => !filteredByTitle.map((item) => item.id).includes(book.id)
         ),
       ];
-      return setFilteredResults(sortResults(mergedFilteredResults));
+      return setFilteredResults(
+        sortResults(
+          mergedFilteredResults,
+          filters.sortBy,
+          filters.sortDescendent
+        )
+      );
     }
     setFilteredResults(sortResults(books));
   }, [filters]);
@@ -52,7 +61,7 @@ const App = () => {
         Welcome to Dispenser! Here you can find many resources for your studies!
       </p>
       <div>
-        Filters
+        <Filters />
         <div className="input-filter-container">
           <input
             type="text"
@@ -71,12 +80,12 @@ const App = () => {
 
 export default App;
 
-const sortResults = (array, descendent) =>
+const sortResults = (array, entity, descendent) =>
   array.sort((a, b) => {
-    if (a.title < b.title) {
+    if (a[entity] < b[entity]) {
       return descendent ? -1 : 1;
     }
-    if (a.title > b.title) {
+    if (a[entity] > b[entity]) {
       return descendent ? 1 : -1;
     }
     return 0;
