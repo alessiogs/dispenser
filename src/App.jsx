@@ -7,7 +7,7 @@ const App = () => {
   const [authors, setAuthors] = useState(authorsList);
   const [books, setBooks] = useState(booksList);
   const [topics, setTopics] = useState(topicsList);
-  const [subjexts, setSubjects] = useState(subjectsList);
+  const [subjects, setSubjects] = useState(subjectsList);
 
   const [filters, setFilters] = useState({
     keyword: "",
@@ -21,6 +21,18 @@ const App = () => {
   );
 
   useEffect(() => {
+    if (
+      !filters.keyword &&
+      !filters.subjects.length &&
+      !filters.topics.length
+    ) {
+      return setFilteredResults(
+        sortResults(books, filters.sortBy, filters.sortDescendent)
+      );
+    }
+
+    let mergedFilteredResults = [];
+
     if (filters.keyword) {
       const filteredByTitle = books.filter((book) =>
         book.title.toLowerCase().includes(filters.keyword.toLowerCase())
@@ -37,21 +49,40 @@ const App = () => {
             .length
       );
 
-      const mergedFilteredResults = [
-        ...filteredByTitle,
-        ...filteredByAuthor.filter(
-          (book) => !filteredByTitle.map((item) => item.id).includes(book.id)
-        ),
-      ];
-      return setFilteredResults(
-        sortResults(
-          mergedFilteredResults,
-          filters.sortBy,
-          filters.sortDescendent
-        )
+      filteredByKeyword = concatWithoutDuplicates(
+        filteredByTitle,
+        filteredByAuthor
+      );
+
+      mergedFilteredResults = filteredByKeyword;
+    }
+
+    if (filters.subjects.length) {
+      const filteredBySubject = books.filter(
+        (book) =>
+          filters.subjects.filter((subject) => book.subjects.includes(subject))
+            .length
+      );
+      mergedFilteredResults = concatWithoutDuplicates(
+        mergedFilteredResults,
+        filteredBySubject
       );
     }
-    setFilteredResults(sortResults(books));
+
+    if (filters.topics.length) {
+      const filteredByTopic = books.filter(
+        (book) =>
+          filters.topics.filter((topic) => book.topics.includes(topic)).length
+      );
+      mergedFilteredResults = concatWithoutDuplicates(
+        mergedFilteredResults,
+        filteredByTopic
+      );
+    }
+
+    return setFilteredResults(
+      sortResults(mergedFilteredResults, filters.sortBy, filters.sortDescendent)
+    );
   }, [filters]);
 
   return (
@@ -60,8 +91,13 @@ const App = () => {
       <p>
         Welcome to Dispenser! Here you can find many resources for your studies!
       </p>
-      <div>
-        <Filters />
+      <div className="input-filter-container">
+        <Filters
+          filters={filters}
+          setFilters={setFilters}
+          subjects={subjects}
+          topics={topics}
+        />
         <div className="input-filter-container">
           <input
             type="text"
@@ -90,3 +126,13 @@ const sortResults = (array, entity, descendent) =>
     }
     return 0;
   });
+
+const concatWithoutDuplicates = (array1, array2) => {
+  return [
+    ...array1,
+    ...array2.filter(
+      (item) =>
+        !array1.map((comparingItem) => comparingItem.id).includes(item.id)
+    ),
+  ];
+};

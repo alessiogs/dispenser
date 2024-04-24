@@ -6,6 +6,8 @@ body {
   justify-content: center;
   margin: 0 10px;
   font-family: "Open Sans", sans-serif;
+  max-width: 800px;
+  margin: auto;
 }
 
 table {
@@ -45,10 +47,23 @@ thead tr:hover {
   background-color: white;
 }
 
-.input-filter-container {
+.filters-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.filter-item-label {
+  margin-right: 10px;
 }
 
 .input-filter-container input {
@@ -64,4 +79,29 @@ thead tr:hover {
 .input-filter-container input:focus {
   outline-width: 1px;
   width: 100%;
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter {
+  padding: 10px;
+  border: 1px solid #2a6f97;
+  border-radius: 10px;
+  margin: 5px 0;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 200ms;
+}
+
+.filter:hover {
+  box-shadow: #2a6f97 0px 0px 10px 1px;
+}
+
+.filter-selected {
+  color: white;
+  background-color: #2a6f97;
 }
