@@ -50,7 +50,7 @@ const App = () => {
             .length
       );
 
-      filteredByKeyword = concatWithoutDuplicates(
+      const filteredByKeyword = concatWithoutDuplicates(
         filteredByTitle,
         filteredByAuthor
       );
@@ -92,7 +92,7 @@ const App = () => {
       <p>
         Welcome to Dispenser! Here you can find many resources for your studies!
       </p>
-      <div className="input-filter-container">
+      <div>
         <Filters
           filters={filters}
           setFilters={setFilters}
