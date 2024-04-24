@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const Filters = ({ filters, setFilters, subjects, topics }) => {
+  const [showFilters, setShowFilters] = useState(false);
   const handleSelectFilter = (item, filterKey) => {
     const isItemSelected = filters[filterKey].includes(item.id);
     setFilters({
@@ -11,38 +14,46 @@ const Filters = ({ filters, setFilters, subjects, topics }) => {
 
   return (
     <div>
-      <div className="filter-container">
-        <div className="filter-item-label">Subjects</div>
-        <div className="filters-container">
-          {subjects.map((subject) => (
-            <div
-              key={subject.id}
-              className={`filter ${
-                filters.subjects.includes(subject.id) && "filter-selected"
-              }`}
-              onClick={() => handleSelectFilter(subject, "subjects")}
-            >
-              {subject.subject}
-            </div>
-          ))}
-        </div>
+      <div
+        style={{ cursor: "pointer" }}
+        onClick={() => setShowFilters(!showFilters)}
+      >
+        {showFilters ? "Hide" : "Show"} filters
       </div>
-      <div className="filter-container">
+      <div className={`${showFilters ? "expanded" : "collapsed"}`}>
         <div className="filter-container">
-          <div>Topics</div>
+          <div className="filter-item-label">Subjects</div>
+          <div className="filters-container">
+            {subjects.map((subject) => (
+              <div
+                key={subject.id}
+                className={`filter ${
+                  filters.subjects.includes(subject.id) && "filter-selected"
+                }`}
+                onClick={() => handleSelectFilter(subject, "subjects")}
+              >
+                {subject.subject}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="filters-container">
-          {topics.map((topic) => (
-            <div
-              key={topic.id}
-              className={`filter ${
-                filters.topics.includes(topic.id) && "filter-selected"
-              }`}
-              onClick={() => handleSelectFilter(topic, "topics")}
-            >
-              {topic.topic}
-            </div>
-          ))}
+        <div className="filter-container">
+          <div className="filter-container">
+            <div>Topics</div>
+          </div>
+          <div className="filters-container">
+            {topics.map((topic) => (
+              <div
+                key={topic.id}
+                className={`filter ${
+                  filters.topics.includes(topic.id) && "filter-selected"
+                }`}
+                onClick={() => handleSelectFilter(topic, "topics")}
+              >
+                {topic.topic}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
