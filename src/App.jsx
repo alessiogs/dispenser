@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { authorsList, booksList, subjectsList, topicsList } from "./db";
 import Table from "./components/Table";
 import Filters from "./components/Filters";
+import { concatWithoutDuplicates, sortResults } from "./utils/utils";
 
 const App = () => {
   const [authors, setAuthors] = useState(authorsList);
@@ -115,24 +116,3 @@ const App = () => {
 };
 
 export default App;
-
-const sortResults = (array, entity, descendent) =>
-  array.sort((a, b) => {
-    if (a[entity] < b[entity]) {
-      return descendent ? -1 : 1;
-    }
-    if (a[entity] > b[entity]) {
-      return descendent ? 1 : -1;
-    }
-    return 0;
-  });
-
-const concatWithoutDuplicates = (array1, array2) => {
-  return [
-    ...array1,
-    ...array2.filter(
-      (item) =>
-        !array1.map((comparingItem) => comparingItem.id).includes(item.id)
-    ),
-  ];
-};
