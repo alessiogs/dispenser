@@ -1,13 +1,16 @@
 body {
   margin: 0;
-  /* background-color: rgb(58, 58, 58);
-  color: white; */
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 0 10px;
-  font-family: "Open Sans", sans-serif;
-  max-width: 800px;
   margin: auto;
+  max-width: 800px;
 }
 
 table {
@@ -67,9 +70,15 @@ thead tr:hover {
   margin-right: 10px;
 }
 
+.input-filter-container {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .input-filter-container input {
-  margin: 10px 0;
-  width: 50%;
+  width: 40%;
   padding: 10px;
   border-radius: 10px;
   border: 1px lightgray solid;
@@ -89,7 +98,7 @@ thead tr:hover {
 
 .filter {
   padding: 10px;
-  border: 1px solid #2a6f97;
+  border: 1px solid #146c94;
   border-radius: 10px;
   margin: 5px 0;
   margin-right: 10px;
@@ -99,12 +108,12 @@ thead tr:hover {
 }
 
 .filter:hover {
-  box-shadow: #2a6f97 0px 0px 10px 1px;
+  box-shadow: #146c94 0px 0px 10px 1px;
 }
 
 .filter-selected {
   color: white;
-  background-color: #2a6f97;
+  background-color: #146c94;
 }
 
 .collapsed {
@@ -120,4 +129,23 @@ thead tr:hover {
   visibility: visible;
   transition: all;
   transition-duration: 200ms;
+}
+
+.show-filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  transition: all;
+  transition-duration: 200ms;
+  width: 40%;
+  margin: auto;
+}
+
+.show-filter-button:hover {
+  color: #146c94;
+  background-color: lightgray;
 }

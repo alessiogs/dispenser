@@ -87,7 +87,7 @@ const App = () => {
   }, [filters]);
 
   return (
-    <div>
+    <div className="main-container">
       <h1>Dispenser</h1>
       <p>
         Welcome to Dispenser! Here you can find many resources for your studies!

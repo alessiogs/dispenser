@@ -15,7 +15,7 @@ const Filters = ({ filters, setFilters, subjects, topics }) => {
   return (
     <div>
       <div
-        style={{ cursor: "pointer" }}
+        className="show-filter-button"
         onClick={() => setShowFilters(!showFilters)}
       >
         {showFilters ? "Hide" : "Show"} filters
