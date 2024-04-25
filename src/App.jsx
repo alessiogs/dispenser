@@ -89,10 +89,10 @@ const App = () => {
   return (
     <div className="main-container">
       <h1>Dispenser</h1>
-      <p>
-        Welcome to Dispenser! Here you can find many resources for your studies!
-      </p>
       <div>
+        Welcome to Dispenser! Here you can find many resources for your studies!
+      </div>
+      <div style={{ marginTop: "10px" }}>
         <Filters
           filters={filters}
           setFilters={setFilters}
