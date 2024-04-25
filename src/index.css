@@ -88,7 +88,7 @@ thead tr:hover {
 
 .input-filter-container input:focus {
   outline-width: 1px;
-  width: 100%;
+  width: 95%;
 }
 
 .filters-container {
